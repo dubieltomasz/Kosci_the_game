@@ -28,18 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            mainPanel = new Panel();
             SuspendLayout();
+            // 
+            // mainPanel
+            // 
+            mainPanel.Dock = DockStyle.Fill;
+            mainPanel.Location = new Point(0, 0);
+            mainPanel.Name = "mainPanel";
+            mainPanel.Size = new Size(800, 450);
+            mainPanel.TabIndex = 0;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(mainPanel);
             Name = "MainForm";
             Text = "Kosci the game";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel mainPanel;
     }
 }
