@@ -1,4 +1,5 @@
 using Kości__gra_.Scenes;
+using System.Diagnostics;
 
 namespace Kości__gra_
 {
@@ -13,6 +14,10 @@ namespace Kości__gra_
         public MainForm()
         {
             InitializeComponent();
+
+            this.Width = 1280;
+            this.Height = 720;
+
             NavigateTo(mainMenu);
         }
 
