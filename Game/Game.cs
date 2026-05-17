@@ -73,6 +73,18 @@ namespace Kości__gra_.Game
             }
         }
 
+        public int[] GetScore()
+        {
+            int[] score = new int[players];
+
+            for(int i = 0; i < players; ++i)
+            {
+                score[i] = scoreArray[i, 0] + scoreArray[i, 1];
+            }
+
+            return score;
+        }
+
         public string[] ShowScore()
         {
             string[] result = ["", "", "", ""];
@@ -132,10 +144,14 @@ namespace Kości__gra_.Game
                     {
                         return ["Undefied category"];
                     }
-                    currentPlayer = (currentPlayer + 1) % players;
-                    --turnsLeft;
 
                     response2 = PlayerChooseCategory(player, category.Value);
+
+                    if(response2.Length != 1)
+                    {
+                        currentPlayer = (currentPlayer + 1) % players;
+                        --turnsLeft;
+                    } 
                     break;
                 case Action.Quit:
                     break;

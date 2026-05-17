@@ -45,11 +45,14 @@ namespace Kości__gra_.Scenes
                 lastText = response[0];
             }
 
-            lDice1.Text = Convert.ToString(response[0][0]);
-            lDice2.Text = Convert.ToString(response[0][1]);
-            lDice3.Text = Convert.ToString(response[0][2]);
-            lDice4.Text = Convert.ToString(response[0][3]);
-            lDice5.Text = Convert.ToString(response[0][4]);
+            if (response[0].Length == 5)
+            {
+                lDice1.Text = Convert.ToString(response[0][0]);
+                lDice2.Text = Convert.ToString(response[0][1]);
+                lDice3.Text = Convert.ToString(response[0][2]);
+                lDice4.Text = Convert.ToString(response[0][3]);
+                lDice5.Text = Convert.ToString(response[0][4]);
+            }
         }
 
         private void UpdateScore()
@@ -69,20 +72,51 @@ namespace Kości__gra_.Scenes
             }
 
             string[] response = game.MadeMove(
-                0,
+                player,
                 Game.Action.ChooseCategory,
                 null,
                 (Game.Category) Convert.ToInt32(checkedButton.Tag)
             );
 
-            chatBox.Items.Add(response[2]);
+            if(response.Length == 1)
+            {
+                chatBox.Items.Add(response[0]);
+            }
+            else
+            {
+                chatBox.Items.Add(response[2]);
+            }
 
-            player = game.CurrentPlayer();
+                player = game.CurrentPlayer();
             UpdateScore();
 
-            WriteToColumn(response[0], response[1], response[3]);
+            if(response.Length == 4)
+            {
+                WriteToColumn(response[0], response[1], response[3]);
+            }
 
-            chatBox.Items.Add("Turn of Player " + game.CurrentPlayer());
+            if (!game.GameEnded())
+            {
+                chatBox.Items.Add("Turn of Player " + game.CurrentPlayer());
+            }
+            else
+            {
+                int[] score = game.GetScore();
+                int winningPlayer = 0;
+                int winningScore = 0;
+                
+                for(int i = 0; i < game.players; ++i)
+                {
+                    if (score[i] > winningScore)
+                    {
+                        winningPlayer = i;
+                        winningScore = score[i];
+                    }
+                }
+
+                MessageBox.Show("Player " + winningPlayer + " won!!!");
+                Program.mainForm.NavigateTo(MainForm.mainMenu);
+            }
         }
 
         private void WriteToColumn(string score, string category, string combination)
@@ -92,56 +126,56 @@ namespace Kości__gra_.Scenes
             switch (converted)
             {
                 case 0:
-                    lc00.Text = combination;
-                    ls00.Text = score;
+                    lc00.Text += combination + "\n";
+                    ls00.Text += score + "\n";
                     break;
                 case 1:
-                    lc01.Text = combination;
-                    ls01.Text = score;
+                    lc01.Text += combination + "\n";
+                    ls01.Text += score + "\n";
                     break;
                 case 2:
-                    lc02.Text = combination;
-                    ls02.Text = score;
+                    lc02.Text += combination + "\n";
+                    ls02.Text += score + "\n";
                     break;
                 case 3:
-                    lc03.Text = combination;
-                    ls03.Text = score;
+                    lc03.Text += combination + "\n";
+                    ls03.Text += score + "\n";
                     break;
                 case 4:
-                    lc04.Text = combination;
-                    ls04.Text = score;
+                    lc04.Text += combination + "\n";
+                    ls04.Text += score + "\n";
                     break;
                 case 5:
-                    lc05.Text = combination;
-                    ls05.Text = score;
+                    lc05.Text += combination + "\n";
+                    ls05.Text += score + "\n";
                     break;
                 case 6:
-                    lc10.Text = combination;
-                    ls10.Text = score;
+                    lc10.Text += combination + "\n";
+                    ls10.Text += score + "\n";
                     break;
                 case 7:
-                    lc11.Text = combination;
-                    ls11.Text = score;
+                    lc11.Text += combination + "\n";
+                    ls11.Text += score + "\n";
                     break;
                 case 8:
-                    lc12.Text = combination;
-                    ls12.Text = score;
+                    lc12.Text += combination + "\n";
+                    ls12.Text += score + "\n";
                     break;
                 case 9:
-                    lc13.Text = combination;
-                    ls13.Text = score;
+                    lc13.Text += combination + "\n";
+                    ls13.Text += score + "\n";
                     break;
                 case 10:
-                    lc14.Text = combination;
-                    ls14.Text = score;
+                    lc14.Text += combination + "\n";
+                    ls14.Text += score + "\n";
                     break;
                 case 11:
-                    lc15.Text = combination;
-                    ls15.Text = score;
+                    lc15.Text += combination + "\n";
+                    ls15.Text += score + "\n";
                     break;
                 case 12:
-                    lc16.Text = combination;
-                    ls16.Text = score;
+                    lc16.Text += combination + "\n";
+                    ls16.Text += score + "\n";
                     break;
             }
         }
