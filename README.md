@@ -1,6 +1,6 @@
 # Kosci_the_game
 Dice game based on the rules of Yahtzee
-https://img.shields.io/github/last-commit/dubieltomasz/Kosci_the_game/main
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/dubieltomasz/Kosci_the_game/main)
 
 ## Requirements
 - Windows x64
