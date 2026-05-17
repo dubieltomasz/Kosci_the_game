@@ -29,7 +29,7 @@ namespace Kości__gra_.Scenes
 
         private void btPlay_Click(object sender, EventArgs e)
         {
-            Program.mainForm.NavigateTo(MainForm.gameScene);
+            Program.mainForm.NavigateTo(MainForm.createGame);
         }
     }
 }

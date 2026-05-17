@@ -16,5 +16,16 @@ namespace Kości__gra_.Scenes
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MainForm.gameScene.SetGame(new Game.Game(Convert.ToInt32(niPlayers.Value)));
+            Program.mainForm.NavigateTo(MainForm.gameScene);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Program.mainForm.NavigateTo(MainForm.mainMenu);
+        }
     }
 }
