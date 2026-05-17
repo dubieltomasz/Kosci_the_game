@@ -49,31 +49,32 @@
             // 
             // btPlay
             // 
+            btPlay.AutoSize = true;
             btPlay.Location = new Point(3, 3);
             btPlay.Name = "btPlay";
-            btPlay.Size = new Size(75, 23);
+            btPlay.Size = new Size(85, 25);
             btPlay.TabIndex = 0;
-            btPlay.Text = "button1";
+            btPlay.Text = "Create Game";
             btPlay.UseVisualStyleBackColor = true;
             btPlay.Click += btPlay_Click;
             // 
             // btSettings
             // 
-            btSettings.Location = new Point(3, 32);
+            btSettings.Location = new Point(3, 34);
             btSettings.Name = "btSettings";
             btSettings.Size = new Size(75, 23);
             btSettings.TabIndex = 1;
-            btSettings.Text = "button2";
+            btSettings.Text = "Settings";
             btSettings.UseVisualStyleBackColor = true;
             btSettings.Click += btSettings_Click;
             // 
             // btQuit
             // 
-            btQuit.Location = new Point(3, 61);
+            btQuit.Location = new Point(3, 63);
             btQuit.Name = "btQuit";
             btQuit.Size = new Size(75, 23);
             btQuit.TabIndex = 2;
-            btQuit.Text = "button3";
+            btQuit.Text = "Quit";
             btQuit.UseVisualStyleBackColor = true;
             btQuit.Click += btQuit_Click;
             // 
@@ -84,6 +85,7 @@
             Controls.Add(flowLayoutPanel1);
             Name = "MainMenu";
             flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
         }
 
